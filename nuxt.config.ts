@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "nuxt-gtag"],
+  gtag: {
+    id: 'G-RXG9XVPSMH'
+  }
   css: [
     "primevue/resources/themes/lara-light-blue/theme.css",
     "primevue/resources/primevue.css",
@@ -10,3 +13,5 @@ export default defineNuxtConfig({
     transpile: ["primevue","vee-validate/dist/rules"],
   },
 });
+
+
