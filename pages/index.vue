@@ -59,7 +59,7 @@ const mapping = (event) => {
 
 <template>
   <div>
-    <div class="flex">
+    <div class="flex justify-around">
       <!-- Left menu -->
       <div class="relative mx-3 my-5 w-1/3 p-8">
         <!-- Declaring sizes -->
@@ -98,7 +98,7 @@ const mapping = (event) => {
         <div class="mt-6 justify-center space-y-3">
           <Button
             @click="simulation"
-            class="w-full"
+            class="w-full border p-4 border-blue"
             label="Set up Simulation"
           />
           <!-- <Button
