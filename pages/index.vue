@@ -13,6 +13,7 @@ const memories = ref([
 
 const blocks = ref();
 const lines = ref();
+const logs = ref([]);
 
 function simulation() {
   var array1 = [];
@@ -44,6 +45,8 @@ function simulation() {
   }
   lines.value = array2;
   console.log(lines.value);
+  // Clear logs
+  logs.value = [];
 }
 
 // function that performs modular arithmetic to determine data placement
@@ -53,7 +56,21 @@ const mapping = (event) => {
   } = event;
 
   const lineNumber = id % lines.value.length;
-  lines.value[lineNumber].content = content;
+
+  // Check if data already exists in cache
+  const existsInCache = lines.value.some((line) => line.content === content);
+
+  // If data does not exist in cache, overwrite the data in the cache
+  if (!existsInCache) {
+    logs.value.push(
+      `Cache miss: Data with id ${id} does not exist in cache. Adding to cache.`
+    );
+    lines.value[lineNumber].content = content;
+  } else {
+    logs.value.push(
+      `Cache hit: Data with id ${id} already exists in cache. Ignoring.`
+    );
+  }
 };
 </script>
 
@@ -168,6 +185,12 @@ const mapping = (event) => {
               </DataTable>
             </div>
           </div>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold text-cyan-950">Cache Logs</h3>
+          <ul>
+            <li v-for="(log, index) in logs" :key="index">{{ log }}</li>
+          </ul>
         </div>
       </div>
     </div>
