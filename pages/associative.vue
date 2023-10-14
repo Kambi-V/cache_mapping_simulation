@@ -13,6 +13,7 @@ const memories = ref([
 
 const blocks = ref();
 const lines = ref();
+const logs = ref([]);
 
 function simulation() {
   var array1 = [];
@@ -46,6 +47,7 @@ function simulation() {
   }
   lines.value = array2;
   console.log(lines.value);
+  logs.value = [];
 }
 
 // function that maps based on cache replacement policy
@@ -58,10 +60,19 @@ const mapping = (event) => {
 
   console.log("index is " + index);
 
-  const lruIndex = findLRU();
-  lines.value[lruIndex].address = id;
-  lines.value[lruIndex].content = content;
-  lines.value[lruIndex].timestamp = new Date();
+  // Check if data already exists in cache
+  const existsInCache = lines.value.some((line) => line.address === id);
+
+  // If data does not exist in cache, map it
+  if (!existsInCache) {
+    const lruIndex = findLRU();
+    lines.value[lruIndex].address = id;
+    lines.value[lruIndex].content = content;
+    lines.value[lruIndex].timestamp = new Date();
+    logs.value.push(`Mapped data from main memory (Address: ${id}) to cache`);
+  } else {
+    logs.value.push(`Data already exists in cache (Address: ${id})`);
+  }
 };
 
 const findLRU = () => {
@@ -183,6 +194,12 @@ const findLRU = () => {
               </DataTable>
             </div>
           </div>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold text-cyan-950">Cache Logs</h3>
+          <ul>
+            <li v-for="(log, index) in logs" :key="index">{{ log }}</li>
+          </ul>
         </div>
       </div>
     </div>
