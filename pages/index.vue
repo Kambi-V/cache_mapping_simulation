@@ -71,6 +71,8 @@ const mapping = (event) => {
       `Cache hit: Data with id ${id} already exists in cache. Ignoring.`
     );
   }
+  const logContainer = document.querySelector(".overflow-y-auto");
+  logContainer.scrollTop = logContainer.scrollHeight;
 };
 </script>
 
@@ -188,7 +190,7 @@ const mapping = (event) => {
         </div>
         <div class="mt-4">
           <h3 class="text-xl font-bold text-cyan-950">Cache Logs</h3>
-          <ul>
+          <ul class="h-72 overflow-y-auto">
             <li v-for="(log, index) in logs" :key="index">{{ log }}</li>
           </ul>
         </div>

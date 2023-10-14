@@ -73,6 +73,8 @@ const mapping = (event) => {
   } else {
     logs.value.push(`Data already exists in cache (Address: ${id})`);
   }
+  const logContainer = document.querySelector(".overflow-y-auto");
+  logContainer.scrollTop = logContainer.scrollHeight;
 };
 
 const findLRU = () => {
@@ -197,7 +199,7 @@ const findLRU = () => {
         </div>
         <div class="mt-4">
           <h3 class="text-xl font-bold text-cyan-950">Cache Logs</h3>
-          <ul>
+          <ul class="h-72 overflow-y-auto">
             <li v-for="(log, index) in logs" :key="index">{{ log }}</li>
           </ul>
         </div>

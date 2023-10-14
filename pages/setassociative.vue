@@ -20,6 +20,8 @@ const memories = ref([
 const blocks = ref();
 const lines = ref();
 
+const logs = ref([]);
+
 function simulation() {
   var array1 = [];
   var array2 = new Array(selectedSet.value.code);
@@ -48,6 +50,7 @@ function simulation() {
 
   lines.value = array2;
   console.log(lines.value);
+  logs.value = [];
 }
 
 // function that performs mapping on the cache
@@ -59,10 +62,39 @@ const mapping = (event) => {
   // modular arithmetic to identify the cache set to be mapped
   const setNumber = id % lines.value.length;
 
-  const lruIndex = findLRU(setNumber);
-  lines.value[setNumber][lruIndex].key = id;
-  lines.value[setNumber][lruIndex].value = content;
-  lines.value[setNumber][lruIndex].timestamp = new Date();
+  let cacheLineIndex = -1;
+  let cacheLine = null;
+
+  // Check if the data already exists in the cache set
+  for (let i = 0; i < lines.value[setNumber].length; i++) {
+    if (lines.value[setNumber][i].key === id) {
+      cacheLineIndex = i;
+      cacheLine = lines.value[setNumber][i];
+      break;
+    }
+  }
+
+  if (cacheLineIndex !== -1) {
+    // Data already exists in the cache, it's a cache hit
+    logs.value.push(`Cache Hit: Address ${id}`);
+  } else {
+    // Data does not exist in the cache, overwrite the cache line
+    cacheLineIndex = findLRU(setNumber);
+    cacheLine = lines.value[setNumber][cacheLineIndex];
+    cacheLine.key = id;
+    cacheLine.value = content;
+    cacheLine.timestamp = new Date();
+    logs.value.push(`Cache Miss: Address ${id}`);
+  }
+
+  // Update the cache line with the new data
+  cacheLine.key = id;
+  cacheLine.value = content;
+  cacheLine.timestamp = new Date();
+
+  // Scroll to the bottom of the <ul> element
+  const logContainer = document.querySelector(".overflow-y-auto");
+  logContainer.scrollTop = logContainer.scrollHeight;
 };
 
 // function that describes cache placement policy
@@ -211,6 +243,12 @@ const findLRU = (setNumber) => {
               </DataTable>
             </div>
           </div>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-bold text-cyan-950">Cache Logs</h3>
+          <ul class="h-72 overflow-y-auto">
+            <li v-for="(log, index) in logs" :key="index">{{ log }}</li>
+          </ul>
         </div>
       </div>
     </div>
