@@ -121,7 +121,7 @@ useHead({
   <div>
     <div class="flex justify-around">
       <!-- Left menu -->
-      <div class="relative mx-3 my-5 w-1/3 p-8">
+      <div class="relative mx-3 my-5 w-1/3">
         <!-- Declaring sizes -->
         <span class="font-bold"> Declaring Sizes: </span>
         <hr class="my-3 h-px border-0 bg-gray-200 dark:bg-gray-700" />
