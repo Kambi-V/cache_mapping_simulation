@@ -82,6 +82,9 @@ const findLRU = () => {
     return current.timestamp < array[lru].timestamp ? index : lru;
   }, 0);
 };
+useHead({
+  title: "Fully Associative",
+});
 </script>
 
 <template>

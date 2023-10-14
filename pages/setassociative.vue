@@ -112,6 +112,9 @@ const findLRU = (setNumber) => {
     return current.timestamp < array[lru].timestamp ? index : lru;
   }, 0);
 };
+useHead({
+  title: "Set Associative",
+});
 </script>
 
 <template>

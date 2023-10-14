@@ -74,6 +74,9 @@ const mapping = (event) => {
   const logContainer = document.querySelector(".overflow-y-auto");
   logContainer.scrollTop = logContainer.scrollHeight;
 };
+useHead({
+  title: "Direct",
+});
 </script>
 
 <template>
