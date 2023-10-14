@@ -93,8 +93,10 @@ const mapping = (event) => {
   cacheLine.timestamp = new Date();
 
   // Scroll to the bottom of the <ul> element
-  const logContainer = document.querySelector(".overflow-y-auto");
-  logContainer.scrollTop = logContainer.scrollHeight;
+  nextTick(() => {
+    const logContainer = document.querySelector(".overflow-y-auto");
+    logContainer.scrollTop = logContainer.scrollHeight;
+  });
 };
 
 // function that describes cache placement policy

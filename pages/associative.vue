@@ -73,8 +73,10 @@ const mapping = (event) => {
   } else {
     logs.value.push(`Data already exists in cache (Address: ${id})`);
   }
-  const logContainer = document.querySelector(".overflow-y-auto");
-  logContainer.scrollTop = logContainer.scrollHeight;
+  nextTick(() => {
+    const logContainer = document.querySelector(".overflow-y-auto");
+    logContainer.scrollTop = logContainer.scrollHeight;
+  });
 };
 
 const findLRU = () => {

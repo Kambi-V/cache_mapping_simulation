@@ -71,8 +71,10 @@ const mapping = (event) => {
       `Cache hit: Data with id ${id} already exists in cache. Ignoring.`
     );
   }
-  const logContainer = document.querySelector(".overflow-y-auto");
-  logContainer.scrollTop = logContainer.scrollHeight;
+  nextTick(() => {
+    const logContainer = document.querySelector(".overflow-y-auto");
+    logContainer.scrollTop = logContainer.scrollHeight;
+  });
 };
 useHead({
   title: "Direct",
