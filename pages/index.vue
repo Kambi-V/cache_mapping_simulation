@@ -144,6 +144,48 @@ useHead({
             </li>
           </ul>
         </div>
+        <div
+          class="p-4 bg-gray-100 rounded-lg shadow-md mt-4 flex flex-col gap-2"
+        >
+          <p class="text-lg font-bold mb-2">Direct Mapping in Cache</p>
+          <p class="text-gray-700">
+            Direct mapping is a cache management technique used in computer
+            architecture to efficiently store frequently accessed data. Here's
+            how it works:
+          </p>
+          <ol
+            class="list-decimal pl-6 text-gray-700 mt-4 flex flex-col gap-2 h-40 overflow-auto"
+          >
+            <li>
+              Cache and Main Memory: In a computer system, there is main memory
+              (RAM) and cache memory. The cache stores frequently accessed data
+              to speed up access times.
+            </li>
+            <li>
+              Cache Lines and Main Memory Blocks: Both the cache and main memory
+              are divided into fixed-size blocks or lines, with each main memory
+              block corresponding to a cache line.
+            </li>
+            <li>
+              Direct Mapping: Each main memory block is mapped to a specific
+              cache location using a mathematical function, typically involving
+              a modulo operation.
+            </li>
+            <li>
+              Cache Tag: To identify the corresponding data in the cache, a
+              cache tag is used, which is compared to the requested address.
+            </li>
+            <li>
+              Cache Replacement: Due to possible conflicts, a cache replacement
+              policy is used to determine which block is replaced when a cache
+              line is already occupied.
+            </li>
+          </ol>
+          <p class="text-gray-700 mt-4">
+            Direct mapping is a simple and efficient technique, commonly used in
+            computer systems to manage cache memory.
+          </p>
+        </div>
       </div>
       <!-- Right menu -->
       <div class="">

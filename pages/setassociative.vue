@@ -193,6 +193,49 @@ useHead({
             </li>
           </ul>
         </div>
+        <div
+          class="p-4 bg-gray-100 rounded-lg shadow-md flex flex-col gap-2 mt-4"
+        >
+          <p class="text-lg font-bold mb-2">Set-Associative Mapping in Cache</p>
+          <p class="text-gray-700">
+            Set-associative mapping is a cache management technique used in
+            computer architecture to efficiently store frequently accessed data.
+            Here's how it works:
+          </p>
+          <ol
+            class="list-decimal pl-6 text-gray-700 mt-4 flex flex-col gap-2 h-40 overflow-auto"
+          >
+            <li>
+              Cache and Main Memory: In a computer system, there is main memory
+              (RAM) and cache memory. The cache stores frequently accessed data
+              to speed up access times.
+            </li>
+            <li>
+              Set-Associative Mapping: In a set-associative cache, the cache is
+              divided into sets, and each set contains a fixed number of cache
+              lines. Each main memory block can be placed in one of these sets,
+              and each set follows a specific mapping, such as direct-mapped or
+              fully associative within the set.
+            </li>
+            <li>
+              Cache Tag: To identify the corresponding data in the cache, a
+              cache tag is used. The tag is compared to the requested address
+              within the set to determine if the requested data is present.
+            </li>
+            <li>
+              Cache Replacement: With set-associative mapping, conflicts can
+              occur within a set, but they are limited to that set. Cache
+              replacement policies, such as Least Recently Used (LRU), can be
+              used to determine which block is replaced within the set when all
+              cache lines are occupied.
+            </li>
+          </ol>
+          <p class="text-gray-700 mt-4">
+            Set-associative mapping offers a balance between the flexibility of
+            fully associative mapping and the simplicity of direct mapping. It
+            is a common choice for cache management in computer systems.
+          </p>
+        </div>
       </div>
       <!-- Right menu -->
       <div class="">

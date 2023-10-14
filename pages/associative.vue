@@ -152,6 +152,49 @@ useHead({
             </li>
           </ul>
         </div>
+        <div
+          class="p-4 bg-gray-100 rounded-lg shadow-md flex flex-col mt-4 gap-2"
+        >
+          <p class="text-lg font-bold mb-2">
+            Fully Associative Mapping in Cache
+          </p>
+          <p class="text-gray-700">
+            Fully associative mapping is a cache management technique used in
+            computer architecture to efficiently store frequently accessed data.
+            Here's how it works:
+          </p>
+          <ol
+            class="list-decimal pl-6 text-gray-700 mt-4 flex flex-col gap-2 h-40 overflow-auto"
+          >
+            <li>
+              Cache and Main Memory: In a computer system, there is main memory
+              (RAM) and cache memory. The cache stores frequently accessed data
+              to speed up access times.
+            </li>
+            <li>
+              Fully Associative Mapping: In a fully associative cache, any main
+              memory block can be placed in any cache line. There are no fixed
+              mappings, and each cache line can hold data from any block.
+            </li>
+            <li>
+              Cache Tag: To identify the corresponding data in the cache, a
+              cache tag is used, which is compared to the requested address.
+              Since any block can be in any line, the tag is used to determine
+              if the requested data is present.
+            </li>
+            <li>
+              Cache Replacement: With fully associative mapping, there are
+              typically no cache conflicts since any block can go to any line.
+              However, cache replacement policies like Least Recently Used (LRU)
+              may be used when all cache lines are occupied.
+            </li>
+          </ol>
+          <p class="text-gray-700 mt-4">
+            Fully associative mapping offers high flexibility and eliminates
+            cache conflicts, making it suitable for certain cache types in
+            computer systems.
+          </p>
+        </div>
       </div>
       <!-- Right menu -->
       <div class="">
