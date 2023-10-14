@@ -88,7 +88,7 @@ useHead({
       <div class="relative mx-3 my-5 w-1/3">
         <!-- Declaring sizes -->
         <span class="font-bold"> Declaring Sizes: </span>
-        <hr class="my-3 h-px border-0 bg-gray-200 dark:bg-gray-700" />
+        <hr class="my-3 border-0 bg-gray-200 dark:bg-gray-700" />
         <div class="flex-col space-y-4">
           <div class="flex justify-between space-x-3">
             <label name="Cache Size" class="font-medium"
