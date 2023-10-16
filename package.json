@@ -9,13 +9,18 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@typescript-eslint/parser": "^6.7.5",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "nuxt": "^3.7.4",
-    "nuxt-gtag": "^0.5.9"
+    "nuxt-gtag": "^0.5.9",
+    "prettier": "3.0.3"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
     "nuxt-icon": "^0.3.3",
-    "prettier": "2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "primeicons": "^6.0.1",
     "primevue": "^3.36.0",
